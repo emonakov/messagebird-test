@@ -4,7 +4,7 @@ namespace Messagebird\Model;
 
 use Messagebird\App;
 
-abstract class Model implements ModelInterface
+abstract class Model
 {
     /**
      * @var \PDO
