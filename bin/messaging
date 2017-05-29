@@ -1,0 +1,17 @@
+#!/usr/bin/php
+<?php
+
+use Symfony\Component\Console\Application;
+use Messagebird\App;
+use Messagebird\Model\Mode;
+use Messagebird\Command\AddMessageCommand;
+use Messagebird\Command\SetModeCommand;
+
+require __DIR__.'/../vendor/autoload.php';
+$app = App::getApp();
+$app->initMode(new Mode());
+
+$application = new Application();
+$application->add(new AddMessageCommand());
+$application->add(new SetModeCommand());
+$application->run();

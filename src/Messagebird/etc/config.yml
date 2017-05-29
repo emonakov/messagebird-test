@@ -1,0 +1,10 @@
+messagebird-api:
+  test-key: test-api-key
+  prod-key: prod-api-key
+  max-length: 160
+  length: 153
+database:
+  username: dev
+  password: password1
+  dbname: messagebird
+  host: localhost

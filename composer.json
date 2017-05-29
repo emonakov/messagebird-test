@@ -1,0 +1,12 @@
+{
+    "require": {
+        "messagebird/php-rest-api": "^1.6",
+        "symfony/yaml": "^3.2",
+        "symfony/console": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Messagebird\\": "src/Messagebird"
+        }
+    }
+}
