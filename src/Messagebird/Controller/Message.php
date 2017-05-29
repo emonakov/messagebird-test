@@ -3,16 +3,17 @@
 namespace Messagebird\Controller;
 
 use Messagebird\App;
-use Messagebird\Model\ {
+use Messagebird\Model\{
     ModelFactory,
-    Message as MessageModel
+    Message as MessageModel,
+    ModelInterface
 };
 use \MessageBird\Client;
 
 class Message extends Client
 {
     /**
-     * @var MessageModel
+     * @var ModelInterface
      */
     protected $_message;
 
@@ -54,7 +55,7 @@ class Message extends Client
         if ($this->_message) {
             $messages = $this->_prepareMessage();
             foreach ($messages as $message) {
-                $result = $this->_sendMessage($message)->recipients;
+                $result = $this->_sendMessage($message);
                 if ($this->_sendError) {
                     break;
                 } else {
@@ -174,7 +175,7 @@ class Message extends Client
             sleep(1);
         } catch (\Exception $e) {
             $this->_sendError = true;
-            $result = ['error' => $e->getMessage()];
+            $result = ['error' => $e->getMessage(), 'class' => get_class($e)];
         }
         return $result;
     }

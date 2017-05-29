@@ -2,9 +2,8 @@
 
 namespace Messagebird\Model\Message;
 
-use Messagebird\Model\ {
-    ModelFactory,
-    Message
+use Messagebird\Model\{
+    ModelFactory, Message, ModelInterface
 };
 use Messagebird\App;
 
@@ -12,6 +11,9 @@ class Collection
 {
     protected $_tableName = 'message';
 
+    /**
+     * @var ModelInterface[]
+     */
     protected $_items;
 
     /**
